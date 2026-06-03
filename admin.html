@@ -3,18 +3,48 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>xurras</title>
+    <meta name="robots" content="noindex" />
+    <title>xurras · admin</title>
     <link rel="stylesheet" href="src/styles.css" />
   </head>
-  <body>
+  <body data-page="admin">
     <main class="app-shell">
       <section class="topbar" aria-labelledby="app-title">
         <div class="brand-mark" aria-hidden="true">X</div>
         <div class="title-group">
-          <p class="eyebrow">xurras 2026</p>
+          <p class="eyebrow">xurras 2026 · admin</p>
           <h1 id="app-title">Controle mensal do churrasco</h1>
           <p>Pagamentos, pontos e brindes em uma visao de dashboard.</p>
         </div>
+        <div class="toolbar" aria-label="Acoes">
+          <label class="admin-only">
+            Mensalidade
+            <input id="monthly-amount" type="number" min="1" step="1" value="50" />
+          </label>
+          <button class="admin-only" type="button" data-save>Salvar e publicar</button>
+          <button class="ghost-button admin-only" type="button" data-reset>Descartar</button>
+          <button class="ghost-button admin-only" type="button" data-logout>Sair</button>
+        </div>
+      </section>
+
+      <section class="admin-banner login-only" aria-label="Entrar no modo edicao">
+        <form id="login-form" autocomplete="off">
+          <strong>Area de edicao</strong>
+          <span>Cole seu token do GitHub para editar. Ele fica salvo so neste aparelho.</span>
+          <label>
+            Token do GitHub
+            <input name="token" type="password" placeholder="github_pat_..." autocomplete="off" />
+          </label>
+          <button type="submit">Entrar</button>
+          <span class="export-status" data-login-status></span>
+          <a href="index.html" class="back-link">Voltar ao site</a>
+        </form>
+      </section>
+
+      <section class="admin-banner admin-only" aria-label="Modo edicao">
+        <strong>Modo edicao</strong>
+        <span>Edite a vontade e toque em <em>Salvar e publicar</em>. O site atualiza em ~1 min.</span>
+        <span class="export-status" data-export-status></span>
       </section>
 
       <section class="summary-grid" aria-label="Resumo do xurras">
@@ -36,11 +66,21 @@
         </article>
       </section>
 
+      <section class="controls-panel admin-only" aria-label="Adicionar participante">
+        <form id="person-form" autocomplete="off">
+          <label>
+            Nome
+            <input name="name" required placeholder="Ex.: Caio Cancian" />
+          </label>
+          <button type="submit">Adicionar participante</button>
+        </form>
+      </section>
+
       <section class="table-section" aria-labelledby="table-title">
         <div class="section-heading">
           <div>
             <h2 id="table-title">Pagamentos por mes</h2>
-            <p>PG pago no prazo, AT atrasado, NP nao pagou.</p>
+            <p>Clique em uma celula para alternar entre PG, AT, NP e vazio.</p>
           </div>
           <div class="legend" aria-label="Legenda">
             <span><strong class="status-dot pg">PG</strong> Pago ate dia 20, 1 ponto</span>
@@ -67,11 +107,6 @@
         </div>
         <div id="person-cards" class="person-cards"></div>
       </section>
-
-      <footer class="app-footer">
-        <span>xurras 2026</span>
-        <a href="admin.html" class="admin-link">.</a>
-      </footer>
     </main>
 
     <script type="module" src="src/app.js"></script>
