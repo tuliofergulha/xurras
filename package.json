@@ -1,0 +1,17 @@
+{
+  "name": "xurras",
+  "version": "0.1.0",
+  "description": "Controle de pagamento para xurras de final de ano dos amigos.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test"
+  },
+  "keywords": [
+    "churrasco",
+    "pagamentos",
+    "controle"
+  ],
+  "author": "Tulio Fergulha",
+  "license": "MIT"
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>xurras</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-labelledby="app-title">
+        <div class="brand-mark" aria-hidden="true">X</div>
+        <div class="title-group">
+          <p class="eyebrow">xurras 2026</p>
+          <h1 id="app-title">Controle mensal do churrasco</h1>
+          <p>Pagamentos, pontos e brindes em uma visao de dashboard.</p>
+        </div>
+        <div class="toolbar" aria-label="Acoes">
+          <label>
+            Mensalidade
+            <input id="monthly-amount" type="number" min="1" step="1" value="50" />
+          </label>
+          <button class="ghost-button" type="button" data-reset>Reiniciar</button>
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Resumo do xurras">
+        <article class="summary-card primary">
+          <span>Participantes</span>
+          <strong data-summary="people">0</strong>
+        </article>
+        <article class="summary-card">
+          <span>Saldo acumulado</span>
+          <strong data-summary="balance">R$ 0,00</strong>
+        </article>
+        <article class="summary-card">
+          <span>Pontos acumulados</span>
+          <strong data-summary="points">0</strong>
+        </article>
+        <article class="summary-card reward">
+          <span>Copos garantidos</span>
+          <strong data-summary="rewards">0</strong>
+        </article>
+      </section>
+
+      <section class="controls-panel" aria-label="Adicionar participante">
+        <form id="person-form" autocomplete="off">
+          <label>
+            Nome
+            <input name="name" required placeholder="Ex.: Caio Cancian" />
+          </label>
+          <button type="submit">Adicionar participante</button>
+        </form>
+      </section>
+
+      <section class="table-section" aria-labelledby="table-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="table-title">Pagamentos por mes</h2>
+            <p>Clique em uma celula para alternar entre PG, AT, NP e vazio.</p>
+          </div>
+          <div class="legend" aria-label="Legenda">
+            <span><strong class="status-dot pg">PG</strong> Pago ate dia 20, 1 ponto</span>
+            <span><strong class="status-dot at">AT</strong> Pago atrasado, 0 ponto</span>
+            <span><strong class="status-dot np">NP</strong> Caloteiro</span>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead id="payment-head"></thead>
+            <tbody id="payment-body"></tbody>
+            <tfoot id="payment-foot"></tfoot>
+          </table>
+        </div>
+      </section>
+
+      <section class="mobile-list" aria-label="Participantes no mobile">
+        <div class="section-heading">
+          <div>
+            <h2>Resumo por participante</h2>
+            <p>Versao compacta para consultar pelo celular.</p>
+          </div>
+        </div>
+        <div id="person-cards" class="person-cards"></div>
+      </section>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
