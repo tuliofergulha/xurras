@@ -1,0 +1,260 @@
+{
+  "monthlyAmount": 50,
+  "people": [
+    {
+      "id": "caio-cancian",
+      "name": "Caio Cancian",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "AT",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "caio-martins",
+      "name": "Caio Martins",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "cristiano-sampaio",
+      "name": "Cristiano Sampaio",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "AT",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "fabricio-pagotto",
+      "name": "Fabricio Pagotto",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "gabriel-assalin",
+      "name": "Gabriel Assalin",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "AT",
+        "Mai/26": "AT",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "gustavo-pagotto",
+      "name": "Gustavo Pagotto",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "NP",
+        "Abr/26": "NP",
+        "Mai/26": "NP",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "leonardo-vinagre",
+      "name": "Leonardo Vinagre",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "PG",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "lucas-maia",
+      "name": "Lucas Maia",
+      "payments": {
+        "Fev/26": "NP",
+        "Mar/26": "NP",
+        "Abr/26": "NP",
+        "Mai/26": "NP",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "lucas-vinagre",
+      "name": "Lucas Vinagre",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "fabio-miori",
+      "name": "Fabio Miori",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "AT",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "filipe-brunherotto",
+      "name": "Filipe Brunherotto",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "marco-oliveira",
+      "name": "Marco Oliveira",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "AT",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "matheus-aggio",
+      "name": "Matheus Aggio",
+      "payments": {
+        "Fev/26": "NP",
+        "Mar/26": "NP",
+        "Abr/26": "NP",
+        "Mai/26": "NP",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "rafael-ribeiro",
+      "name": "Rafael Ribeiro",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "tiago-costa",
+      "name": "Tiago Costa",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "AT",
+        "Mai/26": "NP",
+        "Jun/26": "",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "tiago-pagotto",
+      "name": "Tiago Pagotto",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "PG",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    },
+    {
+      "id": "tulio-fergulha",
+      "name": "Tulio Fergulha",
+      "payments": {
+        "Fev/26": "PG",
+        "Mar/26": "PG",
+        "Abr/26": "PG",
+        "Mai/26": "PG",
+        "Jun/26": "PG",
+        "Jul/26": "",
+        "Ago/26": "",
+        "Set/26": "",
+        "Out/26": ""
+      }
+    }
+  ]
+}

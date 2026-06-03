@@ -33,28 +33,30 @@ export const statuses = {
 
 export const statusCycle = ["PG", "AT", "NP", ""];
 
+// Fonte de dados real fica em data.json (versionado no repo).
+// Aqui mantemos apenas um fallback vazio caso o fetch falhe.
 export const initialState = {
   monthlyAmount: 50,
-  people: [
-    person("Caio Cancian", ["PG", "PG", "PG", "AT"]),
-    person("Caio Martins", ["PG", "PG", "PG", "PG"]),
-    person("Cristiano Sampaio", ["PG", "PG", "AT", "PG"]),
-    person("Fabricio Pagotto", ["PG", "PG", "PG", "PG"]),
-    person("Gabriel Assalin", ["PG", "PG", "AT", "AT"]),
-    person("Gustavo Pagotto", ["PG", "NP", "NP", "NP"]),
-    person("Leonardo Vinagre", ["PG", "PG", "PG", "PG", "PG"]),
-    person("Lucas Maia", ["NP", "NP", "NP", "NP"]),
-    person("Lucas Vinagre", ["PG", "PG", "PG", "PG"]),
-    person("Fabio Miori", ["PG", "PG", "PG", "AT"]),
-    person("Filipe Brunherotto", ["PG", "PG", "PG", "PG"]),
-    person("Marco Oliveira", ["PG", "PG", "PG", "AT"]),
-    person("Matheus Aggio", ["NP", "NP", "NP", "NP"]),
-    person("Rafael Ribeiro", ["PG", "PG", "PG", "PG"]),
-    person("Tiago Costa", ["PG", "PG", "AT", "NP"]),
-    person("Tiago Pagotto", ["PG", "PG", "PG", "PG", "PG"]),
-    person("Tulio Fergulha", ["PG", "PG", "PG", "PG", "PG"])
-  ]
+  people: []
 };
+
+export function normalizeState(savedState) {
+  return {
+    monthlyAmount: Number(savedState?.monthlyAmount || initialState.monthlyAmount),
+    people: Array.isArray(savedState?.people)
+      ? savedState.people.map(normalizePerson)
+      : []
+  };
+}
+
+function normalizePerson(savedPerson) {
+  const base = person(String(savedPerson?.name || ""), []);
+  return {
+    ...base,
+    id: savedPerson?.id || base.id,
+    payments: { ...base.payments, ...(savedPerson?.payments || {}) }
+  };
+}
 
 export function person(name, payments = []) {
   return {
