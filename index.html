@@ -36,6 +36,26 @@
         </article>
       </section>
 
+      <section class="monthly-summary" aria-labelledby="monthly-summary-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="monthly-summary-title">Resumo mensal para o grupo</h2>
+            <p>Escolha o mês e copie uma mensagem pronta para enviar.</p>
+          </div>
+          <label class="month-select-label">
+            Mês do resumo
+            <select id="monthly-summary-month" aria-label="Mês do resumo"></select>
+          </label>
+        </div>
+        <div class="monthly-summary-content">
+          <textarea id="monthly-summary-text" readonly aria-label="Texto do resumo mensal"></textarea>
+          <div class="summary-copy-actions">
+            <button type="button" class="copy-summary-button" data-copy-summary>Copiar resumo</button>
+            <span data-copy-summary-status aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+
       <section class="table-section" aria-labelledby="table-title">
         <div class="section-heading">
           <div>

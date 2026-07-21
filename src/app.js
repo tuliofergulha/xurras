@@ -3,6 +3,7 @@ import {
   getPersonTotals,
   getRewardStatus,
   getSummary,
+  getMonthlySummary,
   initialState,
   money,
   months,
@@ -32,18 +33,25 @@ const resetButton = document.querySelector("[data-reset]");
 const logoutButton = document.querySelector("[data-logout]");
 const exportStatus = document.querySelector("[data-export-status]");
 const loginStatus = document.querySelector("[data-login-status]");
+const monthlySummarySelect = document.querySelector("#monthly-summary-month");
+const monthlySummaryText = document.querySelector("#monthly-summary-text");
+const copySummaryButton = document.querySelector("[data-copy-summary]");
+const copySummaryStatus = document.querySelector("[data-copy-summary-status]");
 
 let state = structuredClone(initialState);
+let selectedSummaryMonth = months[0];
 
 setMode();
 init();
 
 async function init() {
   state = await loadState();
+  selectedSummaryMonth = latestMonthWithPayment(state);
   if (monthlyAmountInput) monthlyAmountInput.value = String(state.monthlyAmount);
 
   if (isAdminPage) attachLoginEvents();
   if (isAdmin) attachAdminEvents();
+  attachMonthlySummaryEvents();
   render();
 }
 
@@ -155,6 +163,30 @@ function attachAdminEvents() {
   });
 }
 
+function attachMonthlySummaryEvents() {
+  monthlySummarySelect.addEventListener("change", () => {
+    selectedSummaryMonth = monthlySummarySelect.value;
+    renderMonthlySummary();
+  });
+
+  copySummaryButton.addEventListener("click", async () => {
+    const summary = getMonthlySummary(state, selectedSummaryMonth);
+
+    try {
+      await copyText(summary);
+      copySummaryButton.textContent = "Resumo copiado!";
+      copySummaryStatus.textContent = "Texto copiado para a área de transferência.";
+    } catch (error) {
+      console.error("Não foi possível copiar o resumo", error);
+      copySummaryStatus.textContent = "Não foi possível copiar. Selecione o texto e tente novamente.";
+    }
+
+    window.setTimeout(() => {
+      copySummaryButton.textContent = "Copiar resumo";
+    }, 2200);
+  });
+}
+
 async function publish() {
   setExportStatus("Salvando...");
   saveButton.disabled = true;
@@ -240,6 +272,15 @@ function render() {
   paymentBody.innerHTML = state.people.map(renderRow).join("");
   paymentFoot.innerHTML = renderFoot(summary);
   personCards.innerHTML = state.people.map(renderCard).join("");
+  renderMonthlySummary();
+}
+
+function renderMonthlySummary() {
+  monthlySummarySelect.innerHTML = months
+    .map((month) => `<option value="${month}">${month}</option>`)
+    .join("");
+  monthlySummarySelect.value = selectedSummaryMonth;
+  monthlySummaryText.value = getMonthlySummary(state, selectedSummaryMonth);
 }
 
 function renderHead() {
@@ -392,4 +433,25 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function latestMonthWithPayment(currentState) {
+  return (
+    [...months]
+      .reverse()
+      .find((month) => currentState.people.some((currentPerson) => currentPerson.payments[month])) ||
+    months[0]
+  );
+}
+
+async function copyText(value) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  monthlySummaryText.select();
+  const copied = document.execCommand("copy");
+  monthlySummaryText.setSelectionRange(0, 0);
+  if (!copied) throw new Error("Clipboard indisponível");
 }

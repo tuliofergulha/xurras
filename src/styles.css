@@ -34,7 +34,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -210,6 +212,29 @@ input {
   color: var(--ink);
 }
 
+select,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: white;
+  color: var(--ink);
+}
+
+select {
+  min-height: 42px;
+  padding: 0 36px 0 12px;
+}
+
+textarea {
+  min-height: 220px;
+  padding: 14px;
+  resize: vertical;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 input:focus {
   border-color: var(--accent);
   outline: 3px solid rgba(37, 99, 235, 0.14);
@@ -248,7 +273,8 @@ input:focus {
 .summary-card,
 .controls-panel,
 .table-section,
-.mobile-list {
+.mobile-list,
+.monthly-summary {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -285,6 +311,42 @@ input:focus {
 .controls-panel {
   margin-bottom: 16px;
   padding: 14px;
+}
+
+.monthly-summary {
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.month-select-label {
+  min-width: 140px;
+}
+
+.monthly-summary-content {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.summary-copy-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-summary-button {
+  min-height: 42px;
+  border-radius: 8px;
+  padding: 0 16px;
+  background: var(--accent);
+  color: white;
+  font-weight: 900;
+}
+
+.summary-copy-actions span {
+  color: var(--muted);
+  font-size: 0.86rem;
 }
 
 #person-form {
