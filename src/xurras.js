@@ -158,6 +158,29 @@ export function getSummary(state) {
   );
 }
 
+export function getMonthlySummary(state, month) {
+  const selectedMonth = months.includes(month) ? month : months[0];
+  const lines = state.people.map((currentPerson) => {
+    const status = statuses[currentPerson.payments[selectedMonth]];
+    const name = currentPerson.name;
+
+    if (status?.label === "NP") {
+      return `- ${name} está devendo ${money(state.monthlyAmount)}.`;
+    }
+
+    if (status) {
+      return `- ${name} está em dia.`;
+    }
+
+    return `- ${name}: pagamento ainda não informado.`;
+  });
+
+  return [
+    `Resumo do mês de ${selectedMonth}:`,
+    ...(lines.length ? lines : ["- Ainda não há participantes cadastrados."])
+  ].join("\n");
+}
+
 function formatPoints(value) {
   return new Intl.NumberFormat("pt-BR", {
     maximumFractionDigits: 1

@@ -5,6 +5,7 @@ import {
   getPersonTotals,
   getRewardStatus,
   getSummary,
+  getMonthlySummary,
   months,
   person
 } from "../src/xurras.js";
@@ -68,5 +69,22 @@ describe("monthly payment control", () => {
     const currentPerson = person("Caio");
 
     assert.deepEqual(Object.keys(currentPerson.payments), months);
+  });
+
+  it("creates a shareable monthly summary with pending values", () => {
+    const state = {
+      monthlyAmount: 50,
+      people: [person("Ana", ["NP"]), person("Bia", ["AT"]), person("Caio")]
+    };
+
+    assert.equal(
+      getMonthlySummary(state, "Fev/26"),
+      [
+        "Resumo do mês de Fev/26:",
+        "- Ana está devendo R$ 50,00.",
+        "- Bia está em dia.",
+        "- Caio: pagamento ainda não informado."
+      ].join("\n")
+    );
   });
 });
